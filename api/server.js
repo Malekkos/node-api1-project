@@ -17,11 +17,8 @@ server.post("/api/users", async (req, res) => {
     } else {
     const createdUser = await User.insert({ name, bio }) //expects only name and bio, creates its own ID
     // console.log(id, name, bio) // works
-    // console.log(createdUser)
-    res.status(201).json({ //created
-      message: "success creating a new user",
-      data: createdUser,
-    })
+    console.log(createdUser)
+    res.status(201).json(createdUser)
   }
   } catch {
     res.status(500).json({
