@@ -22,7 +22,19 @@ server.post("/api/users", async (req, res) => {
     })
   }
 })
+server.get("/api/users", async (req, res) => {
+  console.log("this is the response body: ", res.body)
+  try {
+    const users = await User.find()
+    console.log(users)
+    res.status(200).json(users)
+  } catch {
+    res.status(500).json({
+      message: "The users information could not be retrieved"
+    })
 
+  }
+})
 
 
 
