@@ -33,7 +33,6 @@ server.get("/api/users", async (req, res) => {
   }
 })
 server.get("/api/users/:id", async (req, res) => {
-  console.log("req.params", req.params, "res.body", res.body)
   try {
     const { id } = req.params
     const foundUser = await User.findById(id)
@@ -42,7 +41,6 @@ server.get("/api/users/:id", async (req, res) => {
         message: "The user with the specified ID does not exist"
       })
     } else {
-    console.log(id)
     res.status(200).json(foundUser)
   }
   } catch {
