@@ -73,9 +73,7 @@ server.put("/api/users/:id", async (req,res) => {
     const {name, bio} = req.body
     const changes = {name, bio}
     const foundUser = await User.update(id, changes)
-    console.log(id)
     if(!foundUser) {
-      console.log("no id")
       res.status(404).json({
         message: "The user with the specified ID does not exist"
       })
